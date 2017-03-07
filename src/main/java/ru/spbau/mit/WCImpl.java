@@ -34,7 +34,14 @@ public class WCImpl implements Command {
             out.setLength(0);
             out.append(tmp.split("\n").length);
             out.append(" ");
-            out.append(tmp.split(" ").length);
+            String[] lines = tmp.replaceAll("[\\s]{2,}", " ").trim().split("\n");
+            int countWords = 0;
+            for (String i : lines) {
+                if (i.length() > 0) {
+                    countWords += i.split(" ").length;
+                }
+            }
+            out.append(countWords);
             out.append(" ");
             out.append(tmp.getBytes().length + 1);
             out.append("\n");
@@ -48,9 +55,16 @@ public class WCImpl implements Command {
                         String tmp = new Scanner(f).useDelimiter("\\Z").next();
                         out.append(tmp.split("\n").length);
                         out.append(" ");
-                        out.append(tmp.split(" ").length);
+                        String[] lines = tmp.replaceAll("[\\s]{2,}", " ").trim().split("\n");
+                        int countWords = 0;
+                        for (String j : lines) {
+                            if (j.length() > 0) {
+                                countWords += j.split(" ").length;
+                            }
+                        }
+                        out.append(countWords);
                         out.append(" ");
-                        out.append(tmp.getBytes().length + 1);
+                        out.append(tmp.getBytes().length);
                         out.append(" ");
                         out.append(i);
                         out.append("\n");
@@ -62,7 +76,7 @@ public class WCImpl implements Command {
                     if (args == null){
                         out.append(param[0].split("\n").length);
                         out.append(" ");
-                        out.append(param[0].split(" ").length);
+                        out.append(param[0].replaceAll("[\\s]{2,}", " ").trim().split(" ").length);
                         out.append(" ");
                         out.append(param[0].getBytes().length + 1);
                         out.append("\n");

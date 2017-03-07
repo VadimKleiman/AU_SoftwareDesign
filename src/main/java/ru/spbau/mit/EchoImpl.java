@@ -12,10 +12,11 @@ public class EchoImpl implements Command {
         if (args != null) {
             for (String i : args) {
                 out.append(i.replace("\"", ""));
+                out.append(" ");
             }
         } else {
             out.append(pipe.read());
         }
-        return out.toString();
+        return out.toString().trim();
     }
 }
