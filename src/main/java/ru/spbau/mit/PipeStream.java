@@ -1,6 +1,6 @@
 package ru.spbau.mit;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Input/Output stream

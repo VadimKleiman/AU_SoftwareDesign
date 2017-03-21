@@ -1,6 +1,6 @@
 package ru.spbau.mit;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Public interface for commands
@@ -15,5 +15,5 @@ public interface Command {
      * @return the result of running the command
      * @throws CommandException
      */
-    public String run(@NotNull PipeStream pipe, String[] args, @NotNull Environment env) throws CommandException;
+    public String run(@NotNull PipeStream pipe, @NotNull String[] args, @NotNull Environment env) throws CommandException;
 }

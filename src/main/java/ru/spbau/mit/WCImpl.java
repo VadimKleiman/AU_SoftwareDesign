@@ -1,6 +1,6 @@
 package ru.spbau.mit;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,18 +8,18 @@ import java.util.Scanner;
 
 /**
  * Print newline, word, and byte counts for each FILE, and a total line if
- more than one FILE is specified
+ * more than one FILE is specified
  */
 public class WCImpl implements Command {
 
     @Override
-    public String run(@NotNull PipeStream pipe, String[] args, @NotNull Environment env) throws CommandException {
+    public String run(@NotNull PipeStream pipe, @NotNull String[] args, @NotNull Environment env) throws CommandException {
         String[] param = null;
         String p = pipe.read();
-        if (args == null && p != null) {
+        if (args.length == 0 && p != null) {
             param = new String[1];
             param[0] = p;
-        } else if (args != null) {
+        } else if (args.length != 0) {
             param = args;
         }
         if (param == null) {
@@ -73,7 +73,7 @@ public class WCImpl implements Command {
                         throw new CommandException("wc");
                     }
                 } else {
-                    if (args == null){
+                    if (args.length == 0){
                         out.append(param[0].split("\n").length);
                         out.append(" ");
                         out.append(param[0].replaceAll("[\\s]{2,}", " ").trim().split(" ").length);

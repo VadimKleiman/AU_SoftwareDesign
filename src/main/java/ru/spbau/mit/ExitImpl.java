@@ -1,6 +1,6 @@
 package ru.spbau.mit;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Cause normal process termination
@@ -8,7 +8,7 @@ import com.sun.istack.internal.NotNull;
 public class ExitImpl implements Command {
 
     @Override
-    public String run(@NotNull PipeStream pipe, String[] args, @NotNull Environment env) throws CommandException {
+    public String run(@NotNull PipeStream pipe, @NotNull String[] args, @NotNull Environment env) throws CommandException {
         throw new CommandException("exit");
     }
 }

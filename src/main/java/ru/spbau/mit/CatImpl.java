@@ -1,7 +1,6 @@
 package ru.spbau.mit;
 
-
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,10 +10,9 @@ import java.util.Scanner;
  * Concatenate files and print on the standard output
  */
 public class CatImpl implements Command {
-
     @Override
-    public String run(@NotNull PipeStream pipe, String[] args, @NotNull Environment env) throws CommandException{
-        if (args != null) {
+    public String run(@NotNull PipeStream pipe, @NotNull String[] args, @NotNull Environment env) throws CommandException {
+        if (args.length > 0) {
             StringBuilder out = new StringBuilder();
             for (String i : args) {
                 File f = new File(i);
@@ -36,7 +34,7 @@ public class CatImpl implements Command {
                 String text = scan.nextLine();
                 System.out.println(text);
                 out.append(text);
-            }while(scan.hasNext());
+            } while(scan.hasNext());
             return out.toString();
         }
     }

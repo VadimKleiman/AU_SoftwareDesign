@@ -1,17 +1,17 @@
 package ru.spbau.mit;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This class collect command context
  */
-public class Proc {
+public class CommandRunner {
     private Environment env;
     private Command cmd;
     private String[] args;
     private PipeStream pipe;
 
-    public Proc(@NotNull PipeStream pipe, @NotNull Command cmd, String[] args, @NotNull Environment env) {
+    public CommandRunner(@NotNull PipeStream pipe, @NotNull Command cmd, String[] args, @NotNull Environment env) {
         this.pipe = pipe;
         this.cmd = cmd;
         this.args = args;
@@ -24,7 +24,7 @@ public class Proc {
      * @throws CommandException
      */
     public String exec() throws CommandException {
-        String result = cmd.run(pipe,args, env);
+        String result = cmd.run(pipe, args, env);
         pipe.write(result);
         return result;
     }

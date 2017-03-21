@@ -1,6 +1,6 @@
 package ru.spbau.mit;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 public final class Preprocessor {
     /**
@@ -28,7 +28,7 @@ public final class Preprocessor {
             }
             if (i < element.length() && element.charAt(i) == '$') {
                 begin = i;
-                while(i < element.length() && element.charAt(i) != ' ' && element.charAt(i) != '\"'
+                while (i < element.length() && element.charAt(i) != ' ' && element.charAt(i) != '\"'
                         && element.charAt(i) != '\'') {
                     i++;
                 }

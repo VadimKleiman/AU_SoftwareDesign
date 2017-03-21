@@ -12,4 +12,5 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile group: 'com.beust', name: 'jcommander', version: '1.48'
+    compile group: 'org.jetbrains', name: 'annotations', version: '15.0'
 }

@@ -2,6 +2,9 @@ package ru.spbau.mit;
 
 import java.util.HashMap;
 
+/**
+ * Class for storing environment variables
+ */
 public class Environment {
     private HashMap<String, String> env = new HashMap<String, String>();
 

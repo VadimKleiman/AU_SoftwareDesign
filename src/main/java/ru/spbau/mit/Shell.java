@@ -20,9 +20,9 @@ public class Shell {
                 try {
                     String strInput = Preprocessor.replace(scan.nextLine(), env);
                     List<String> tokens = Tokenizer.getTokens(strInput);
-                    List<Proc> process = parser.parse(tokens, env);
+                    List<CommandRunner> process = parser.parse(tokens, env);
                     String out = null;
-                    for (Proc i : process) {
+                    for (CommandRunner i : process) {
                         out = i.exec();
                     }
                     if (out != null) {

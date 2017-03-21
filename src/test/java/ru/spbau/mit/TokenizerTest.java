@@ -16,6 +16,7 @@ public class TokenizerTest {
         out.add("\"Hello World!\"");
         assertEquals(out, Tokenizer.getTokens(test));
     }
+
     @Test
     public void pipe() {
         String test = "echo \"Hello World!\" | pwd";
@@ -26,6 +27,7 @@ public class TokenizerTest {
         out.add("pwd");
         assertEquals(out, Tokenizer.getTokens(test));
     }
+
     @Test
     public void args() {
         String test = "echo -l --all \"Hello World! Test=Test\"";
@@ -36,6 +38,7 @@ public class TokenizerTest {
         out.add("\"Hello World! Test=Test\"");
         assertEquals(out, Tokenizer.getTokens(test));
     }
+
     @Test
     public void equalsOperator() {
         String test = "x=Hello";

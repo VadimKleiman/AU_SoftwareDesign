@@ -1,19 +1,17 @@
 package ru.spbau.mit;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for syntax analysis
+ * Syntax analysis list of tokens
  */
 public class Parser {
-    /**
-     *
-     */
-    private class Factory {
-        public Command getCommand(String element) {
+
+    private static class Factory {
+        public static Command getCommand(String element) {
             switch (element) {
                 case "pwd":
                     return new PWDImpl();
@@ -31,11 +29,6 @@ public class Parser {
         }
     }
 
-    /**
-     *
-     * @param tokens
-     * @return
-     */
     private List<List<String>> split(@NotNull List<String> tokens) {
         List<List<String>> splitTokens = new ArrayList<>();
         int begin = 0;
@@ -50,20 +43,19 @@ public class Parser {
     }
 
     /**
-     *
+     * Parse input list of tokens
      * @param tokens
      * @param env
-     * @return
+     * @return list of command
      * @throws ParserException
      */
-    public List<Proc> parse(@NotNull List<String> tokens, @NotNull Environment env) throws ParserException {
-        for(String i : tokens) {
+    public List<CommandRunner> parse(@NotNull List<String> tokens, @NotNull Environment env) throws ParserException {
+        for (String i : tokens) {
             if (i.length() == 0) {
                 throw new ParserException();
             }
         }
-        Factory f = new Factory();
-        List<Proc> out = new ArrayList<>();
+        List<CommandRunner> out = new ArrayList<>();
         List<List<String>> splitTokens = split(tokens);
         PipeStream pipe = new PipeStream();
         for (List<String> i : splitTokens) {
@@ -76,9 +68,9 @@ public class Parser {
                 for (int j = 1; j < i.size(); j++) {
                     args[j - 1] = i.get(j);
                 }
-                out.add(new Proc(pipe, f.getCommand(i.get(0)), args, env));
+                out.add(new CommandRunner(pipe, Factory.getCommand(i.get(0)), args, env));
             } else {
-                out.add(new Proc(pipe, f.getCommand(i.get(0)), null, env));
+                out.add(new CommandRunner(pipe, Factory.getCommand(i.get(0)), new String[0], env));
             }
         }
         return out;
