@@ -1,6 +1,10 @@
-package ru.spbau.mit;
+package ru.spbau.mit.kernel;
 
 import org.jetbrains.annotations.NotNull;
+import ru.spbau.mit.command.Command;
+import ru.spbau.mit.command.CommandException;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * This class collect command context
@@ -23,7 +27,7 @@ public class CommandRunner {
      * @return result of execute command
      * @throws CommandException
      */
-    public String exec() throws CommandException {
+    public String exec() throws CommandException, UnsupportedEncodingException {
         String result = cmd.run(pipe, args, env);
         pipe.write(result);
         return result;

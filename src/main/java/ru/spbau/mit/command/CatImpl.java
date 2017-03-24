@@ -1,6 +1,8 @@
-package ru.spbau.mit;
+package ru.spbau.mit.command;
 
 import org.jetbrains.annotations.NotNull;
+import ru.spbau.mit.kernel.Environment;
+import ru.spbau.mit.kernel.PipeStream;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +21,7 @@ public class CatImpl implements Command {
                 if (f.isFile()) {
                     try {
                         out.append(new Scanner(f).useDelimiter("\\Z").next());
-                    }catch (FileNotFoundException ex) {
+                    } catch (FileNotFoundException ex) {
                         throw new CommandException("Cat");
                     }
                 } else {

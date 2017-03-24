@@ -1,14 +1,17 @@
 package ru.spbau.mit;
 
 import org.junit.Test;
+import ru.spbau.mit.command.CommandException;
+import ru.spbau.mit.kernel.*;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class ShellTest {
     @Test
-    public void cmd() throws PreprocessorException, ParserException, CommandException {
+    public void cmd() throws PreprocessorException, ParserException, CommandException, UnsupportedEncodingException {
         Environment env = new Environment();
         Parser parser = new Parser();
         env.write("DIRPATH", System.getProperty("user.dir"));
@@ -20,6 +23,6 @@ public class ShellTest {
         for (CommandRunner i : process) {
             out = i.exec();
         }
-        assertEquals("1 2 13\n", out);
+        assertEquals("1 2 12\n", out);
     }
 }

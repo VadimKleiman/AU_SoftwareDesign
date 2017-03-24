@@ -1,6 +1,10 @@
-package ru.spbau.mit;
+package ru.spbau.mit.command;
 
 import org.jetbrains.annotations.NotNull;
+import ru.spbau.mit.kernel.Environment;
+import ru.spbau.mit.kernel.PipeStream;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * Public interface for commands
@@ -15,5 +19,5 @@ public interface Command {
      * @return the result of running the command
      * @throws CommandException
      */
-    public String run(@NotNull PipeStream pipe, @NotNull String[] args, @NotNull Environment env) throws CommandException;
+    public String run(@NotNull PipeStream pipe, @NotNull String[] args, @NotNull Environment env) throws CommandException, UnsupportedEncodingException;
 }

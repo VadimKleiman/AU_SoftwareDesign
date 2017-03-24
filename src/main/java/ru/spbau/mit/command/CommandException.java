@@ -1,4 +1,4 @@
-package ru.spbau.mit;
+package ru.spbau.mit.command;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
  * Runtime error command
  */
 public class CommandException extends Exception {
-    private String cmdName;
+    private final String cmdName;
 
     CommandException(@NotNull String element) {
         cmdName = element;

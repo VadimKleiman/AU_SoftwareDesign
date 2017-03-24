@@ -1,6 +1,12 @@
 package ru.spbau.mit;
 
 import org.junit.Test;
+import ru.spbau.mit.command.EchoImpl;
+import ru.spbau.mit.command.PWDImpl;
+import ru.spbau.mit.kernel.CommandRunner;
+import ru.spbau.mit.kernel.Environment;
+import ru.spbau.mit.kernel.Parser;
+import ru.spbau.mit.kernel.ParserException;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,8 @@
-package ru.spbau.mit;
+package ru.spbau.mit.command;
 
 import org.jetbrains.annotations.NotNull;
+import ru.spbau.mit.kernel.Environment;
+import ru.spbau.mit.kernel.PipeStream;
 
 /**
  * Print name of current/working directory

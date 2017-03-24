@@ -1,6 +1,8 @@
-package ru.spbau.mit;
+package ru.spbau.mit.command;
 
 import org.jetbrains.annotations.NotNull;
+import ru.spbau.mit.kernel.Environment;
+import ru.spbau.mit.kernel.PipeStream;
 
 /**
  * Cause normal process termination

@@ -1,6 +1,7 @@
-package ru.spbau.mit;
+package ru.spbau.mit.kernel;
 
 import org.jetbrains.annotations.NotNull;
+import ru.spbau.mit.command.*;
 
 import java.util.ArrayList;
 import java.util.List;

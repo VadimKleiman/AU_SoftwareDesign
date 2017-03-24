@@ -1,6 +1,7 @@
 package ru.spbau.mit;
 
 import org.junit.Test;
+import ru.spbau.mit.kernel.Tokenizer;
 
 import java.util.ArrayList;
 import java.util.List;

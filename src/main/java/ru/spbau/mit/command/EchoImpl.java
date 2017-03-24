@@ -1,6 +1,8 @@
-package ru.spbau.mit;
+package ru.spbau.mit.command;
 
 import org.jetbrains.annotations.NotNull;
+import ru.spbau.mit.kernel.Environment;
+import ru.spbau.mit.kernel.PipeStream;
 
 /**
  * Display a line of text
@@ -11,7 +13,7 @@ public class EchoImpl implements Command {
         StringBuilder out = new StringBuilder();
         if (args.length > 0) {
             for (String i : args) {
-                out.append(i.replace("\"", ""));
+                out.append(i.replace("\"", "").replace("\'", ""));
                 out.append(" ");
             }
         } else {
