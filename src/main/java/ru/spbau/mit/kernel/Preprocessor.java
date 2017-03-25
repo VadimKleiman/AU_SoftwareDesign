@@ -9,7 +9,7 @@ public final class Preprocessor {
      * @param element row input string
      * @param env environments
      * @return preprocess string
-     * @throws PreprocessorException
+     * @throws PreprocessorException throws if mismatching quotes were found
      */
     public static String replace(@NotNull String element, @NotNull Environment env) throws PreprocessorException {
         StringBuilder out = new StringBuilder();

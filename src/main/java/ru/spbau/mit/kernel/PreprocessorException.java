@@ -1,7 +1,8 @@
 package ru.spbau.mit.kernel;
 
 /**
- * Error preprocessing
+ * Class that represents exception that may
+ * arise during processing raw input string
  */
 public class PreprocessorException extends Exception {
     @Override

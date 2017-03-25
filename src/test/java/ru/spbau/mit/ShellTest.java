@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class ShellTest {
     @Test
-    public void cmd() throws PreprocessorException, ParserException, CommandException, UnsupportedEncodingException {
+    public void ShellSimpleTest() throws PreprocessorException, ParserException, CommandException, UnsupportedEncodingException {
         Environment env = new Environment();
         Parser parser = new Parser();
         env.write("DIRPATH", System.getProperty("user.dir"));

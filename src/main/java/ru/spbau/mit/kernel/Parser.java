@@ -45,10 +45,11 @@ public class Parser {
 
     /**
      * Parse input list of tokens
-     * @param tokens
-     * @param env
+     * @param tokens array of independent strings to interpret in commands
+     * @param env environment variables
      * @return list of command
-     * @throws ParserException
+     * @throws ParserException throws exception if there were no tokens
+     * between two pipes.
      */
     public List<CommandRunner> parse(@NotNull List<String> tokens, @NotNull Environment env) throws ParserException {
         for (String i : tokens) {
@@ -58,6 +59,11 @@ public class Parser {
         }
         List<CommandRunner> out = new ArrayList<>();
         List<List<String>> splitTokens = split(tokens);
+        for (List<String> i : splitTokens) {
+            if (i.size() == 0) {
+                throw new ParserException();
+            }
+        }
         PipeStream pipe = new PipeStream();
         for (List<String> i : splitTokens) {
             if (i.size() == 3 && i.get(1).equals("=")) {

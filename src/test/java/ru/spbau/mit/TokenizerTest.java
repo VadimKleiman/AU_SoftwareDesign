@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class TokenizerTest {
     @Test
-    public void oneCommand() {
+    public void TokenizerOneCommandTest() {
         String test = "echo \"Hello World!\"";
         List<String> out = new ArrayList<>();
         out.add("echo");
@@ -19,7 +19,7 @@ public class TokenizerTest {
     }
 
     @Test
-    public void pipe() {
+    public void TokenizerPipeTest() {
         String test = "echo \"Hello World!\" | pwd";
         List<String> out = new ArrayList<>();
         out.add("echo");
@@ -30,7 +30,7 @@ public class TokenizerTest {
     }
 
     @Test
-    public void args() {
+    public void TokenizerArgsTest() {
         String test = "echo -l --all \"Hello World! Test=Test\"";
         List<String> out = new ArrayList<>();
         out.add("echo");
@@ -41,7 +41,7 @@ public class TokenizerTest {
     }
 
     @Test
-    public void equalsOperator() {
+    public void TokenizerEqualsOperatorTest() {
         String test = "x=Hello";
         List<String> out = new ArrayList<>();
         out.add("x");

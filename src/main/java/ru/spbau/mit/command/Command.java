@@ -15,9 +15,9 @@ public interface Command {
      * Method runs the command
      * @param pipe input/output stream
      * @param args arguments
-     * @param env environments
+     * @param env environment variables
      * @return the result of running the command
-     * @throws CommandException
+     * @throws CommandException if there where errors during command execution
      */
     public String run(@NotNull PipeStream pipe, @NotNull String[] args, @NotNull Environment env) throws CommandException, UnsupportedEncodingException;
 }

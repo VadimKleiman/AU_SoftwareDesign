@@ -3,7 +3,8 @@ package ru.spbau.mit.command;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Runtime error command
+ * Class that represents exception that may
+ * arise during command execution
  */
 public class CommandException extends Exception {
     private final String cmdName;

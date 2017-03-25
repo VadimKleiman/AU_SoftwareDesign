@@ -25,7 +25,7 @@ public class CommandRunner {
     /**
      * Execute command
      * @return result of execute command
-     * @throws CommandException
+     * @throws CommandException if there where errors during command execution
      */
     public String exec() throws CommandException, UnsupportedEncodingException {
         String result = cmd.run(pipe, args, env);

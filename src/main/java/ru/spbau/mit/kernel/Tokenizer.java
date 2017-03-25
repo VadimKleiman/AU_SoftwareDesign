@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Contains method that tokenize a string
+ */
 public final class Tokenizer {
     /**
      * Method splits the string into tokens
