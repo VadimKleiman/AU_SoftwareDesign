@@ -1,4 +1,4 @@
-package ru.spbau.mit.command;
+package ru.spbau.mit.command.exceptions;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class CommandException extends Exception {
     private final String cmdName;
 
-    CommandException(@NotNull String element) {
+    public CommandException(@NotNull String element) {
         cmdName = element;
     }
 

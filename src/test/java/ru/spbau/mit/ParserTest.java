@@ -5,7 +5,7 @@ import ru.spbau.mit.command.*;
 import ru.spbau.mit.kernel.CommandRunner;
 import ru.spbau.mit.kernel.Environment;
 import ru.spbau.mit.kernel.Parser;
-import ru.spbau.mit.kernel.ParserException;
+import ru.spbau.mit.kernel.exceptions.ParserException;
 
 import java.util.ArrayList;
 import java.util.List;

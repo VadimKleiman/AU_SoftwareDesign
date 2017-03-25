@@ -2,6 +2,7 @@ package ru.spbau.mit;
 
 import org.junit.Test;
 import ru.spbau.mit.command.*;
+import ru.spbau.mit.command.exceptions.CommandException;
 import ru.spbau.mit.kernel.Environment;
 import ru.spbau.mit.kernel.PipeStream;
 

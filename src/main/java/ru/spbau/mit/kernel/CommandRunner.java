@@ -2,7 +2,7 @@ package ru.spbau.mit.kernel;
 
 import org.jetbrains.annotations.NotNull;
 import ru.spbau.mit.command.Command;
-import ru.spbau.mit.command.CommandException;
+import ru.spbau.mit.command.exceptions.CommandException;
 
 import java.io.UnsupportedEncodingException;
 

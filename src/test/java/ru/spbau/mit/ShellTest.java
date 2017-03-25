@@ -1,8 +1,10 @@
 package ru.spbau.mit;
 
 import org.junit.Test;
-import ru.spbau.mit.command.CommandException;
+import ru.spbau.mit.command.exceptions.CommandException;
 import ru.spbau.mit.kernel.*;
+import ru.spbau.mit.kernel.exceptions.ParserException;
+import ru.spbau.mit.kernel.exceptions.PreprocessorException;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;

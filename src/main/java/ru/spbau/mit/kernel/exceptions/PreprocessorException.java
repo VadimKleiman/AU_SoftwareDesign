@@ -1,4 +1,4 @@
-package ru.spbau.mit.kernel;
+package ru.spbau.mit.kernel.exceptions;
 
 /**
  * Class that represents exception that may

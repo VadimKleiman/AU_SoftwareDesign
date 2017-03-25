@@ -2,6 +2,7 @@ package ru.spbau.mit.kernel;
 
 import org.jetbrains.annotations.NotNull;
 import ru.spbau.mit.command.*;
+import ru.spbau.mit.kernel.exceptions.ParserException;
 
 import java.util.ArrayList;
 import java.util.List;

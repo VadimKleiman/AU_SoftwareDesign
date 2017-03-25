@@ -1,6 +1,7 @@
 package ru.spbau.mit.kernel;
 
 import org.jetbrains.annotations.NotNull;
+import ru.spbau.mit.kernel.exceptions.PreprocessorException;
 
 public final class Preprocessor {
     /**

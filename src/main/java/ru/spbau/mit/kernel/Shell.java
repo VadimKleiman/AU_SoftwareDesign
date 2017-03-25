@@ -1,6 +1,9 @@
 package ru.spbau.mit.kernel;
 
-import ru.spbau.mit.command.CommandException;
+import ru.spbau.mit.command.exceptions.CommandException;
+import ru.spbau.mit.kernel.exceptions.ParserException;
+import ru.spbau.mit.kernel.exceptions.PreprocessorException;
+
 import java.util.List;
 import java.util.Scanner;
 
