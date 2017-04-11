@@ -25,6 +25,10 @@ public class Parser {
                     return new WCImpl();
                 case "exit":
                     return new ExitImpl();
+                case "ls":
+                    return new LsImpl();
+                case "cd":
+                    return new CdImpl();
                 default:
                     return new UnknownImpl(element);
             }
