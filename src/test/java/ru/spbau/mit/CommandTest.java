@@ -75,4 +75,54 @@ public class CommandTest {
         Command exit = new ExitImpl();
         exit.run(pipe, new String[0], env);
     }
+    @Test
+    public void CommandGrepTest() throws CommandException, UnsupportedEncodingException  {
+        PipeStream pipe = new PipeStream();
+        Command grep = new GrepImpl();
+        String[] args = {"Hello"};
+        pipe.write("Hello World!");
+        String out = grep.run(pipe, args, env);
+        String check = "Hello World!\n";
+        assertEquals(out, check);
+    }
+    @Test
+    public void CommandGrepIgnoreCaseTest() throws CommandException, UnsupportedEncodingException {
+        PipeStream pipe = new PipeStream();
+        Command grep = new GrepImpl();
+        String[] args = {"hello", "-i"};
+        pipe.write("Hello World!");
+        String out = grep.run(pipe, args, env);
+        String check = "Hello World!\n";
+        assertEquals(out, check);
+        String[] args2 = {"hello"};
+        pipe.write("Hello World!");
+        out = grep.run(pipe, args2, env);
+        check = "";
+        assertEquals(out, check);
+    }
+    @Test
+    public void CommandGrepWholeWordTest() throws CommandException, UnsupportedEncodingException {
+        PipeStream pipe = new PipeStream();
+        Command grep = new GrepImpl();
+        String[] args = {"hello", "-w", "-i"};
+        pipe.write("Hello World!");
+        String out = grep.run(pipe, args, env);
+        String check = "Hello World!\n";
+        assertEquals(out, check);
+        String[] args2 = {"hel", "-w", "-i"};
+        pipe.write("Hello World!");
+        out = grep.run(pipe, args2, env);
+        check = "";
+        assertEquals(out, check);
+    }
+    @Test
+    public void CommandGrepNLinesTest() throws CommandException, UnsupportedEncodingException {
+        PipeStream pipe = new PipeStream();
+        Command grep = new GrepImpl();
+        String[] args = {"hello", "-w", "-i", "-A", "2"};
+        pipe.write("123\nHello World!\n1\n2\n3\n4");
+        String out = grep.run(pipe, args, env);
+        String check = "Hello World!\n1\n2\n";
+        assertEquals(out, check);
+    }
 }

@@ -25,6 +25,8 @@ public class Parser {
                     return new WCImpl();
                 case "exit":
                     return new ExitImpl();
+                case "grep":
+                    return new GrepImpl();
                 default:
                     return new UnknownImpl(element);
             }
