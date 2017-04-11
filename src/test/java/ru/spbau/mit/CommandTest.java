@@ -1,5 +1,6 @@
 package ru.spbau.mit;
 
+import org.junit.Before;
 import org.junit.Test;
 import ru.spbau.mit.command.*;
 import ru.spbau.mit.command.exceptions.CommandException;
@@ -8,11 +9,18 @@ import ru.spbau.mit.kernel.PipeStream;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Paths;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class CommandTest {
-    private Environment env = new Environment();
+    private Environment env;
+
+    @Before
+    public void initEnv() {
+        env = new Environment();
+    }
 
     @Test
     public void CommandWCReadSTDInputTest() throws CommandException, IOException {
@@ -74,5 +82,29 @@ public class CommandTest {
         PipeStream pipe = new PipeStream();
         Command exit = new ExitImpl();
         exit.run(pipe, new String[0], env);
+    }
+
+
+    @Test
+    public void CommandCdHomeDirTest() throws CommandException, UnsupportedEncodingException {
+        PipeStream pipe = new PipeStream();
+        env.write("DIRPATH", System.getProperty("user.dir"));
+        String homeDir = System.getProperty("user.home");
+
+        Command cmd = new CdImpl();
+        cmd.run(pipe, new String[0], env);
+        assertEquals(homeDir, env.read("DIRPATH"));
+    }
+
+    @Test
+    public void CommandCdTest() throws CommandException, UnsupportedEncodingException {
+        PipeStream pipe = new PipeStream();
+        env.write("DIRPATH", System.getProperty("user.dir"));
+        final String pwd = System.getProperty("user.dir");
+        final String curDirName = Paths.get(pwd).getFileName().toString();
+
+        Command cmd = new CdImpl();
+        cmd.run(pipe, new String[]{"../" + curDirName}, env);
+        assertEquals(pwd, env.read("DIRPATH"));
     }
 }
