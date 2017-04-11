@@ -29,7 +29,9 @@ public class CommandRunner {
      */
     public String exec() throws CommandException, UnsupportedEncodingException {
         String result = cmd.run(pipe, args, env);
-        pipe.write(result);
+        if (result != null) {
+            pipe.write(result);
+        }
         return result;
     }
 

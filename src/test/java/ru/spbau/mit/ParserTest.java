@@ -28,12 +28,15 @@ public class ParserTest {
         test.add("ls");
         test.add("|");
         test.add("wc");
+        test.add("|");
+        test.add("unknownCommand");
         List<CommandRunner> commands = p.parse(test, env);
         assertTrue(commands.get(0).getCommand() instanceof PWDImpl);
         assertTrue(commands.get(1).getCommand() instanceof EchoImpl);
         assertTrue(commands.get(2).getCommand() instanceof CatImpl);
-        assertTrue(commands.get(3).getCommand() instanceof UnknownImpl);
+        assertTrue(commands.get(3).getCommand() instanceof LsImpl);
         assertTrue(commands.get(4).getCommand() instanceof WCImpl);
+        assertTrue(commands.get(5).getCommand() instanceof UnknownImpl);
     }
 
     @Test(expected = ParserException.class)
